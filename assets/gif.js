@@ -20,7 +20,6 @@ $("#add-gif").click(() => {
     });
 })
 
-function clearDiv(() => {
+$('#clear-button').click(() => {
     $("#gif-container").empty();
-)
-}
+})
