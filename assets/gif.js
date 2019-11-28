@@ -24,8 +24,10 @@ function showAnimals(animal) {
         for (let el of response.data) {
             let gifDiv = $("<div>").addClass("animal-button");
             let gifImage = $("<img>");
+            let rating = $("<p>").text("Rating: " + el.rating);
             gifImage.attr("src", el.images.downsized_still.url);
             gifDiv.append(gifImage);
+            gifDiv.append(rating);
             $("#gif-container").prepend(gifDiv);
             let isStill = true;
             gifImage.click(() => {
