@@ -16,16 +16,26 @@ $("#add-gif").click(() => {
 
 function showAnimals(animal) {
     let queryURL = `https://api.giphy.com/v1/gifs/search?q=${animal}&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10`;
+    console.log(queryURL);
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(response => {
         for (let el of response.data) {
-            let gifDiv = $("<div>");
+            let gifDiv = $("<div>").addClass("animal-button");
             let gifImage = $("<img>");
-            gifImage.attr("src", el.images.downsized.url);
+            gifImage.attr("src", el.images.downsized_still.url);
             gifDiv.append(gifImage);
             $("#gif-container").prepend(gifDiv);
+            let isStill = true;
+            gifImage.click(() => {
+                if (isStill) {
+                    gifImage.attr("src", el.images.downsized.url);
+                } else {
+                    gifImage.attr("src", el.images.downsized_still.url);
+                }
+                isStill = !isStill;
+            });
         }
     });
 }
