@@ -2,9 +2,14 @@ let existingAnimals = [];
 
 $("#add-gif").click(() => {
     event.preventDefault();
+    $("#user-interaction").text("");
     let animal = $('#gif-input').val().trim();
-    showAnimals(animal);
+    if (animal === "") {
+        $("#user-interaction").text("There is no animal here!");
+        return;
+    }
 
+    showAnimals(animal);
     if (!existingAnimals.includes(animal)) {
         let animalButton = $("<button>");
         animalButton.text(animal);
