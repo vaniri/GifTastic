@@ -1,23 +1,29 @@
-let existingAnimals = [];
+let existingAnimals = ["grumpy cat", "red panda", "fennec", "owl", "doge"];
+
+existingAnimals.forEach(createButton);
 
 $("#add-gif").click(() => {
     event.preventDefault();
-    $("#user-interaction").text("");
-    let animal = $('#gif-input').val().trim();
+    showMessage("");
+    const animal = $('#gif-input').val().trim();
     if (animal === "") {
-        $("#user-interaction").text("There is no animal here!");
+        showMessage("Please enter an animal!");
         return;
     }
 
     showAnimals(animal);
     if (!existingAnimals.includes(animal)) {
-        let animalButton = $("<button>");
-        animalButton.text(animal);
-        $("#button-container").append(animalButton);
-        animalButton.click(() => { showAnimals(animal); });
-        existingAnimals.push(animal);
+        createButton(animal);
     }
 })
+
+function createButton(animal) {
+    const animalButton = $("<button>");
+    animalButton.text(animal);
+    $("#button-container").append(animalButton);
+    animalButton.click(() => { showAnimals(animal); });
+    existingAnimals.push(animal);
+}
 
 function showAnimals(animal) {
     let queryURL = `https://api.giphy.com/v1/gifs/search?q=${animal}&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10`;
@@ -26,10 +32,14 @@ function showAnimals(animal) {
         url: queryURL,
         method: "GET"
     }).then(response => {
+        if (response.data.length === 0) {
+            showMessage("There is no such animal!");
+            return;
+        }
         for (let el of response.data) {
-            let gifDiv = $("<div>").addClass("animal-button");
-            let gifImage = $("<img>");
-            let rating = $("<p>").text("Rating: " + el.rating);
+            const gifDiv = $("<div>").addClass("animal-button");
+            const gifImage = $("<img>");
+            const rating = $("<p>").text("Rating: " + el.rating);
             gifImage.attr("src", el.images.downsized_still.url);
             gifDiv.append(gifImage);
             gifDiv.append(rating);
@@ -45,6 +55,10 @@ function showAnimals(animal) {
             });
         }
     });
+}
+
+function showMessage (text) {
+    $("#user-interaction").text(text);
 }
 
 $('#clear-button').click(() => {
