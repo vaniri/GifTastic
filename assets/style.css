@@ -1,3 +1,19 @@
+body {
+    background-image: url(""); 
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    font-family: 'Lato', sans-serif;
+    font-weight: 200;
+}
+
+
+#navBar {
+    background-color: #4831D4;
+    margin: 10px 0;
+    height: 130px;
+}
+
 #gif-container {
     display: grid;  
     grid-gap: 5px;  
@@ -6,27 +22,35 @@
     margin: 0 5px;
 }
 
-div > img {
+.animal-image {
     width: 100%;  
     height: 90%;  
     object-fit: cover;  
 }
 
+#nav_img{
+    float: left;
+    margin: 15px;
+}
+
 h1 {
-    background-color: #4831D4;
-    padding: 15px;
-    margin: 10px 0;
-    color: #CCF381;
+    padding: 10px;
+    color: #F25050;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 40px;
+    font-weight: 200;
 }
 
 #add-gif, #clear-button, button{
-    padding: 5px;
+    clear: both;
+    padding: 10px;
     margin: 5px 2px;
-    color: #4831D4;
-    border: solid 0,3px #4831D4;
-    background-color: #CCF381;
-    font-size: 15px;
-    border-radius: 4px;
+    color: white;
+    background-color: #F25050;
+    font-size: 17px;
+    font-weight: 200;
+    border: solid 0.2px;
+    border-radius: 1px 7px;
 }
 
 #gif-input {
@@ -47,3 +71,25 @@ p {
     padding: 0;
     color: #4831D4;
 }
+
+#button-container {
+    margin: 0.5vw 0;
+}
+
+.fas fa-alicorn{
+    font-size: 20px;
+    color:  #CCF381;
+}
+
+button:hover {
+    background-color: #4831D4;
+    color: white;
+    cursor: pointer;
+}
+
+
+#user-interaction{
+    color: black;
+    font-size: 20px;
+}
+

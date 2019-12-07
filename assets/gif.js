@@ -27,7 +27,6 @@ function createButton(animal) {
 
 function showAnimals(animal) {
     let queryURL = `https://api.giphy.com/v1/gifs/search?q=${animal}&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10`;
-    console.log(queryURL);
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -38,7 +37,7 @@ function showAnimals(animal) {
         }
         for (let el of response.data) {
             const gifDiv = $("<div>").addClass("animal-button");
-            const gifImage = $("<img>");
+            const gifImage = $("<img>").addClass("animal-image");;
             const rating = $("<p>").text("Rating: " + el.rating);
             gifImage.attr("src", el.images.downsized_still.url);
             gifDiv.append(gifImage);
