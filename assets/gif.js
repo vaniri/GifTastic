@@ -12,9 +12,6 @@ $("#add-gif").click(() => {
     }
 
     showAnimals(animal);
-    if (!existingAnimals.includes(animal)) {
-        createButton(animal);
-    }
 })
 
 function createButton(animal) {
@@ -34,6 +31,9 @@ function showAnimals(animal) {
         if (response.data.length === 0) {
             showMessage("There is no such animal!");
             return;
+        }
+        if (!existingAnimals.includes(animal)) {
+            createButton(animal);
         }
         for (let el of response.data) {
             const gifDiv = $("<div>").addClass("animal-button");
@@ -56,7 +56,7 @@ function showAnimals(animal) {
     });
 }
 
-function showMessage (text) {
+function showMessage(text) {
     $("#user-interaction").text(text);
 }
 
