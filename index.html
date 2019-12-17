@@ -14,23 +14,33 @@
         <div id="navBar">
             <img id="nav-img-right" src="assets/images/33a9b-nyan.gif">
             <h1> GifTastic</h1>
-            <img id="nav-img-left" src="assets/images/lovebot.gif" width="40px" height="50px">
+            <img id="nav-img-left" src="assets/images/lovebot.gif" height="50px">
         </div>
-        <form id="gif-form">
-            <label for="gif-input">Add an animal you like!</label>
-            <input type="text" id="gif-input">
-            <input id="add-gif" type="submit" value="Let's find one!">
-            <input type="button" id="clear-button" value="Clear all!">
-        </form>
-        <div id="user-interaction"></div>
-        <div id="button-container"></div>
-        <div id="gif-container"></div>
-        
+        <div id="wrapper">
+            <div id="gif-container"></div>
+            <div id="button-search-container">
+                <form id="gif-form">
+                    <label for="gif-input">Add an animal you like!</label><br>
+                    <input type="text" id="gif-input"><br>
+                    <input id="add-gif" type="submit" value="Let's find one!">
+                    <input type="button" id="clear-button" value="Clear all!">
+                    <img id="input-container-img" src="assets/images/tenor.gif" width="250" height="200">
+                    <div id="user-interaction"></div>
+                </form>
+                <div id="button-container"></div>
+            </div>
+            <!-- <div id="user-interaction"></div> -->
+        </div>
+
         <div id="footer">
+            <img id="footer-image-right" src="assets/images/58fddbef1faa1106716ee1c32810cd2af82b660f_hq.gif" width="50px" height="50px">
+            <h6>Copyright &copy;</h6>
+            <img id="footer-image-left" src="assets/images/WebbedImpossibleBubblefish-max-1mb.gif" width="70px" height="70px">
         </div>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="assets/gif.js"></script>
 
 </body>
+
 </html>

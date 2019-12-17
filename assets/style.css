@@ -1,10 +1,17 @@
+html {
+  height: 100%;
+}
+
 body {
+  position: relative;
+  min-height: 100%;
   background-image: url("");
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
   font-family: "Lato", sans-serif;
   font-weight: 200;
+  background-color: #f3f2f2;
 }
 
 #navBar {
@@ -34,6 +41,7 @@ h1 {
 }
 
 #gif-container {
+  width: 80%;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -50,7 +58,6 @@ h1 {
 #add-gif,
 #clear-button,
 button {
-  clear: both;
   padding: 10px;
   margin: 5px 2px;
   color: white;
@@ -62,6 +69,7 @@ button {
 }
 
 #gif-input {
+  width: 82%;
   padding: 5px;
   margin: 5px 2px;
   border: 1px solid #4831d4;
@@ -81,7 +89,10 @@ p {
 }
 
 #button-container {
-  margin: 0.5vw 0;
+  width: 10%;
+  max-width: 15vw;
+  display: grid;
+  column-fill: balance;
 }
 
 button:hover {
@@ -96,5 +107,34 @@ button:hover {
 }
 
 #footer {
-  max-width: 200px;
+  /* position: absolute; */
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+
+#footer-image-left,
+#footer-image-right {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#wrapper {
+  display: flex;
+  max-width: 100%;
+  margin: 10px;
+}
+
+#button-search-container {
+  max-width: min-content;
+}
+
+#input-container-img {
+  margin: 10px auto;
+  position: relative;
+}
+
+h6 {
+  margin: 0 auto;
 }
