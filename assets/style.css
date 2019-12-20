@@ -93,6 +93,8 @@ p {
   max-width: 15vw;
   display: grid;
   column-fill: balance;
+  grid-auto-columns: 100%;
+  grid-template-columns: auto auto auto;
 }
 
 button:hover {
